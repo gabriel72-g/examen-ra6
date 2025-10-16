@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello EscuelaController!{% endblock %}
+
+{% block body %}
+{{ form_start(form) }}
+    {{'Instrumento'}}
+    {{ form_widget(form.nombre) }}
+        {{ form_widget(form.imparte) }}
+        <button type="submit" class="btn">Añadir</button>
+{{ form_end(form) }}
+<table class="table table-striped table-hover mt-3">
+<caption>
+    <th>#</th>
+    <th>Alumnos</th>
+    <th></th>
+</caption>
+    <tbody>
+    {% for instru in instrumentos %}
+            <tr>
+            <td>{{instru.nombre}}</td>
+            <td><a href="{{ path('app_instrumento_matricula', {'id': instru.id} ) }}">Alumnos</a></td> 
+            </tr> 
+    {% endfor %}
+    </tbody>
+    </table>
+{% endblock %}

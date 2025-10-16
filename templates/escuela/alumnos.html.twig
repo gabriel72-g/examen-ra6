@@ -1,0 +1,25 @@
+
+{% extends 'base.html.twig' %}
+{% block body %}
+{{ form_start(formulario) }}
+    {{ form_row(formulario.alumnoMatricula) }}
+    {{ form_row(formulario.instrumentoMatricula) }}
+    <button type="submit">Matricular</button>
+{{ form_end(formulario) }}
+
+<table class="table table-striped table-hover mt-3">
+<caption>
+    <th>#</th>
+    <th>Matricula</th>
+    <th></th>
+</caption>
+    <tbody>
+    {% for alumno in alumnos %}
+            <tr>
+            <td>{{ alumno.username }}</td>
+            <td><a href="{{ path('app_matricula_alumno', {'id': alumno.id} ) }}">Matriculado</a></td> 
+            </tr> 
+    {% endfor %}
+    </tbody>
+    </table>
+{% endblock %}

@@ -1,0 +1,10 @@
+
+{% extends 'base.html.twig' %}
+{% block body %}
+   <ul>
+    {% for matricula in matricula %}
+        <li>{{ matricula.getInstrumentoMatricula.nombre }}</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

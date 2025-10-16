@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                {% if app.user is not null and app.user.profesor %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('app_profesor') }}">Mis clases</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('app_mostrar_alumnos') }}">Alumnado</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('app_instrumento') }}">Instrumentos</a>
+                    </li>
+                {% endif %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('app_logout') }}">Salir</a>
+                </li>
+                
+            </ul>
+            {% if app.user %}
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">{{ app.user.NombreApellidos }}</a>
+                    </li>
+                </ul>
+            {% endif %} 
+        </div>
+    </div>
+</nav>
+
